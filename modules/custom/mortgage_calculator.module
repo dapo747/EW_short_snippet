@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Mortgage Calculator module.
+ * Author: Dimitar
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_menu().
+ */
+function mortgage_calculator_menu() {
+  $items['mortgage-calculator'] = [
+    'title' => 'Mortgage Calculator',
+    'page callback' => 'mortgage_calculator_page',
+    'access callback' => TRUE,
+  ];
+  return $items;
+}
+
+/**
+ * Page callback for the mortgage calculator.
+ */
+function mortgage_calculator_page() {
+  $form = \Drupal::formBuilder()->getForm('Drupal\mortgage_calculator\Form\MortgageCalculatorForm');
+  return $form;
+}
