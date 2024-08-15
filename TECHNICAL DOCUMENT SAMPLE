@@ -1,0 +1,38 @@
+Overview
+
+The MortgageCalculatorController.php file contains a Drupal form that implements a simple mortgage calculator. It allows users to input their loan amount, select an interest rate fetched from an external API (TD Bank), and specify the loan term in years. The calculator computes the monthly payment based on these inputs, providing a practical tool for users to assess their mortgage options.
+The main purpose of this module is to offer a user-friendly interface for calculating mortgage payments. This is particularly useful for individuals or families considering home loans, as it helps them understand their financial commitments. By integrating real-time interest rates from TD Bank, users can make more informed decisions based on the latest market data.
+
+Key Components for this module are:
+
+1. Form Creation
+
+    Method: buildForm(array $form, FormStateInterface $form_state)
+    Description: This method constructs the mortgage calculator form.
+    Components:
+        Loan Amount Input: A number input field where users enter the principal loan amount.
+        Interest Rate Selector: A dropdown menu populated with interest rates fetched from the TD Bank API. This dynamic selection helps users access the latest rates without manual updates.
+        Loan Term Input: A number input for the loan term in years.
+        Calculate Button: A submit button that triggers the calculation when clicked.
+        Result Display: Displays the calculated monthly payment after form submission.
+
+2. Fetching Interest Rates
+
+    Method: getInterestRates()
+    Description: This method uses the Guzzle HTTP client to make a GET request to the TD Bank API to retrieve current interest rates.
+    Error Handling: If the API request fails, the method logs the error and returns a default message indicating that the interest rates could not be fetched. This ensures that users receive feedback if something goes wrong.
+
+3. Calculation Logic
+
+    Method: submitForm(array &$form, FormStateInterface $form_state)
+    Description: This method processes the form submission. It calculates the monthly mortgage payment using the following formula:
+    M=P×r(1+r)n(1+r)n−1
+    M=P×(1+r)n−1r(1+r)n​
+    Where:
+        MM = Monthly payment
+        PP = Principal loan amount
+        rr = Monthly interest rate (annual rate divided by 12)
+        nn = Total number of payments (loan term in years multiplied by 12)
+
+Why it was coded this way: By providing a form with real-time interest rates, users can make quick comparisons and understand their mortgage options better. 
+The dropdown selection for interest rates eliminates the need for manual data entry, reducing errors.The logic for fetching interest rates is separated from the form building and submission processing. This modular approach allows for easier maintenance and testing.The Guzzle HTTP client is a robust library for making HTTP requests, ensuring that the application can handle potential issues such as timeouts and network errors gracefully.
