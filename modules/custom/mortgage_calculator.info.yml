@@ -1,0 +1,7 @@
+name: 'Mortgage Calculator'
+type: module
+description: 'Provides a simple mortgage calculator.'
+core_version_requirement: ^10 || ^9
+package: Custom
+dependencies:
+  - drupal:form

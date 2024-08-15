@@ -1,0 +1,7 @@
+name: 'Mortgage Calculator'
+type: module
+description: 'Sample code for mortgage calculator for Dimitar Apostolov evaluation.'
+core_version_requirement: ^10 || ^9
+package: Custom
+dependencies:
+  - drupal:form
