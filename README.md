@@ -25,7 +25,3 @@ drush cr
 Access it from here:
 You can now access your mortgage calculator at your-drupal-site/mortgage-calculator. The dropdown for interest rates will be populated with the latest rates fetched from the TD Bank API.
 
-Thanks for your time considering my CV
-
-Best,
-Dimitar
