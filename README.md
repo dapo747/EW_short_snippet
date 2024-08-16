@@ -1,5 +1,5 @@
 # EW_short_snippet
-Evolving Web evaluation for Dimitar
+Evaluation for Dimitar
 
 This code is only for evaluation purposes for Evolving Web. It is a sampel code for Drupal to add the ability to select an interest rate and fetch the current interest rates from TD Bank using an API. It also includes a dropdown for selecting the interest rate and incorporates an API call to retrieve the latest rates from TD Bank.
 
